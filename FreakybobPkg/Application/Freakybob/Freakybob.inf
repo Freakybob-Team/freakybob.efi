@@ -1,0 +1,56 @@
+# MIT License
+#
+# Copyright (c) 2025 Freakybob-Team
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+[Defines]
+    INF_VERSION                 = 0x00010005
+    BASE_NAME                   = Freakybob
+    MODULE_UNI_FILE             = Freakybob.uni
+    FILE_GUID                   = FC018176-1B00-4D87-A544-9639F67502B1
+    MODULE_TYPE                 = UEFI_APPLICATION
+    VERSION_STRING              = 1.0
+    ENTRY_POINT                 = UefiMain
+
+    UEFI_HII_RESOURCE_SECTION   = TRUE
+    
+    VALID_ARCHITECTURES         = IA32 X64 EBC
+
+[Sources]
+    Freakybob.c
+
+[Packages]
+    MdePkg/MdePkg.dec
+    MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+    UefiApplicationEntryPoint
+    UefiLib
+    PcdLib
+
+[FeaturePcd]
+    gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintEnable
+
+[Pcd]
+    gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintString
+    gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintTimes
+
+[UserExtensions.TianoCore."ExtraFiles"]
+    FreakybobExtra.uni
